@@ -132,13 +132,6 @@ class Player {
                 }
             }
         }
-        for (const [activityId, v] of Object.entries(this.data.activity.CHECKIN_ACCESS)) {
-            log("发现CHECKIN_ACCESS活动",activityId)
-            if (v.currentStatus) {
-                await this.post('/activity/actCheckinAccess/getCheckInReward', {activityId})
-                log("[activity][CHECKIN_ACCESS] getReward",activityId)
-            }
-        }
         for (const [activityId, v] of Object.entries(this.data.activity.GRID_GACHA_V2)) {
             log("发现GRID_GACHA_V2活动",activityId)
             if (!v.today.done) {
