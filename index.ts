@@ -139,13 +139,7 @@ class Player {
                 log("[activity][CHECKIN_ACCESS] getReward",activityId)
             }
         }
-        for (const [activityId, v] of Object.entries(this.data.activity.GRID_GACHA_V2)) {
-            log("发现GRID_GACHA_V2活动",activityId)
-            if (!v.today.done) {
-                await this.post('/activity/gridGachaV2/doTodayGacha', {activityId})
-                log("[activity][GRID_GACHA_V2] doTodayGacha",activityId)
-            }
-        }
+        
         for (const [activityId, v] of Object.entries(this.data.activity.PRAY_ONLY)) {
             log("发现PRAY_ONLY活动",activityId)
             if (!v.praying) {
