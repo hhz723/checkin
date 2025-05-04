@@ -633,14 +633,14 @@ async function bootstrap() {
     await p.auto_building()
     await p.auto_social()
     await p.auto_buy()
-    if(p.config.enableRecruit){
+    if(true){
         await p.auto_recruit()
     }
     await p.auto_campaign()
-    if(p.config.enableBattle){
+    if(true){
         while (p.data.status.ap>=21){
         log("[main] ap remain:",p.data.status.ap)
-        await p.auto_replay(p.config.battleStage,21)
+        await p.auto_replay("main_01-07",21)
     }
     }
     await p.auto_confirm_missions()
