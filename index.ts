@@ -449,20 +449,6 @@ class Player {
             slotList: Object.keys(this.data.building.rooms.TRADING)
         })
         log("[building] deliveryBatchOrder")
-        if(this.config.assignChars){
-            let [_,config]=Object.entries(this.config.building).find(
-                ([condition,_])=> eval(condition)
-            )!
-            for(let [roomSlotId,charIds] of Object.entries(config)){
-                await this.post('/building/assignChar', {
-                    roomSlotId,
-                    charInstIdList: charIds.map(id =>
-                        this.data.dexNav.character[id]?.charInstId || -1
-                    )
-                })
-            }
-            log("[building] assign chars")
-        }
         if(this.config.enableBatchBuilding){
             await this.post("/building/batchChangeWorkChar", {})
             await this.post("/building/batchRestChar", {})
@@ -659,10 +645,6 @@ async function bootstrap() {
     }
     }
     await p.auto_confirm_missions()
-    await axios.get("https://www.vcfile.org/attendance.php",{headers:{
-            "Cookie":atob("Y19zZWN1cmVfbG9naW49Ym05d1pRJTNEJTNEO2Nfc2VjdXJlX3Bhc3M9M2E1M2RkNzc1MDFiNjM2NGQ1YWUzNGUwZGRjMGI3Mzc7Y19zZWN1cmVfc3NsPWJtOXdaUSUzRCUzRDtjX3NlY3VyZV90cmFja2VyX3NzbD1ibTl3WlElM0QlM0Q7Y19zZWN1cmVfdWlkPU1UQXdNVE0lM0Q7")
-        }})
-    
     
     
 }
