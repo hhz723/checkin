@@ -449,11 +449,10 @@ class Player {
             slotList: Object.keys(this.data.building.rooms.TRADING)
         })
         log("[building] deliveryBatchOrder")
-        if(this.config.enableBatchBuilding){
-            await this.post("/building/batchChangeWorkChar", {})
-            await this.post("/building/batchRestChar", {})
-            log("[building] 自动换班完成")
-        }
+        await this.post("/building/batchChangeWorkChar", {})
+        await this.post("/building/batchRestChar", {})
+        log("[building] 自动换班完成")
+        
 
     }
     /*
