@@ -30,10 +30,12 @@ import {
 import {floor} from "lodash";
 
 
+
 const phone = process.argv[2];
 const pwd = process.argv[3];
 
 class Player {
+    
     uid: string;
     seqnum: number;
     secret: string;
