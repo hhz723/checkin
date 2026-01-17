@@ -604,7 +604,7 @@ async function get_token(deviceId: string, deviceId2: string, deviceId3: string,
         appCode: "7318def77669979d",
         type: 1
     })
-    const token2 = res2.data.data.code;
+    const token2 = res2.data.data.token;
     const get_token_req: { [key: string]: any } = {
         appId: "1",
         channelId: "1",
